@@ -3,7 +3,41 @@ module.exports = {
     './src/**/*.{js,ts,jsx,tsx}',
   ],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        sans: ['Inter', 'sans-serif'], // Change 'Inter' to your desired font
+      },
+      colors: {
+        primary: {
+          light: '#2d3748', // Lighter shade of primary color
+          DEFAULT: '#1a202c', // Main primary color
+          dark: '#12161b', // Darker shade of primary color
+        },
+        secondary: {
+          light: '#fef08a', // Lighter shade of secondary color
+          DEFAULT: '#facc15', // Main secondary color (yellow)
+          dark: '#ca8a04', // Darker shade of secondary color
+        },
+        gray: {
+          100: '#f7fafc',
+          200: '#edf2f7',
+          300: '#e2e8f0',
+          400: '#cbd5e0',
+          500: '#a0aec0',
+          600: '#718096',
+          700: '#4a5568',
+          800: '#2d3748',
+          900: '#1a202c',
+        },
+        white: '#ffffff',
+        blue: {
+          500: '#3b82f6',
+        },
+        green: {
+          500: '#10b981',
+        },
+      },
+    },
   },
   plugins: [],
 };
