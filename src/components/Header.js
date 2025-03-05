@@ -3,6 +3,7 @@ import { Badge } from "primereact/badge";
 import { Avatar } from "primereact/avatar";
 
 export default function Header() {
+  const isLiveCall  =true;
   return (
     <div className="bg-white  p-2 pl-4 border-b border-gray-300 ">
       <div className="flex justify-between items-center">
@@ -19,10 +20,15 @@ export default function Header() {
             <a className="text-blue-500 hover:underline" href="#">
               EMI Calculator
             </a>
-            <button className="bg-gray-300 text-gray-700 px-4 py-2 rounded-full">
-              NO LIVE CALL
-            </button>
-          </div>
+            {isLiveCall ? (
+              <button className="bg-gradient-to-b from-green-800 to-green-500 text-white font-bold py-2 px-4 rounded-full shadow-inner shadow-gray-700">
+                LIVE CALL
+              </button>
+            ) : (
+              <button className="bg-gray-300 text-gray-700 px-4 py-2 font-bold rounded-full ">
+                NO LIVE CALL
+              </button>
+            )}          </div>
 
           {/* Mobile-Friendly Icons (Shown on Small Screens) */}
           <div className="flex md:hidden items-center gap-3">
@@ -36,11 +42,17 @@ export default function Header() {
             >
               <i className="pi pi-calculator"></i>
             </a>
+            {isLiveCall ? (  <a href="#" className="text-green-600 text-xl" aria-label="Tutorial">
+              <i className="pi pi-phone"></i>
+            </a>): ( <a href="#" className="text-gray-600 text-xl" aria-label="Tutorial">
+              <i className="pi pi-phone "></i>
+            </a>)}
+           
           </div>
 
           {/* Notification Bell & Avatar (Always Visible) */}
           <div className="relative">
-            <i className="pi pi-bell p-overlay-badge text-xl">
+            <i className="pi pi-bell p-overlay-badge text-xl cursor-pointer">
               <Badge value="2" severity="danger"></Badge>
             </i>
           </div>
@@ -49,6 +61,7 @@ export default function Header() {
             size="small"
             style={{ backgroundColor: "#2196F3", color: "#ffffff" }}
             shape="circle"
+            className="cursor-pointer"
           />
         </div>
       </div>

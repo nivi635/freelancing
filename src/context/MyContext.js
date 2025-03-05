@@ -8,10 +8,10 @@ const MyContext = createContext();
 
 
 export const MyProvider = ({ children }) => {
-  const [state, setState] = useState({}); // Initialize your state here
+  const [headerTitle, setHeaderTitle] = useState('Dashboard');
 
   return (
-    <MyContext.Provider value={{ state, setState }}>
+    <MyContext.Provider value={{ headerTitle, setHeaderTitle }}>
       {children}
     </MyContext.Provider>
   );
