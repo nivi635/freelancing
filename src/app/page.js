@@ -1,5 +1,6 @@
 import React from 'react';
 import StatusCard from '@/components/dashboardComponents/StatusCard';
+
 export default function Dashboard() {
 
   const options = [

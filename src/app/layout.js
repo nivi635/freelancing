@@ -1,9 +1,9 @@
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import 'primeicons/primeicons.css';
 import Sidebar from '../components/Sidebar';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
+import CustomPrimeReactProvider from "@/providers/CustomPrimeReactProvider";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -27,10 +27,11 @@ export default function RootLayout({ children }) {
     <MyProvider>
       <html lang="en">
         <body className={`${geistSans.variable} ${geistMono.variable} antialiased overflow-y-auto`}>
+          <CustomPrimeReactProvider>
           <DashboardWrapper>
             {children}
           </DashboardWrapper>
-          
+          </CustomPrimeReactProvider>
         </body>
       </html>
     </MyProvider>
