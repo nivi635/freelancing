@@ -7,9 +7,9 @@ const StatusCard = ({ title, imageUrl, options, placeholder, defaultText }) => {
   const [selectedOption, setSelectedOption] = useState(null);
 
   return (
-    <div className="bg-white p-6 md:p-10 rounded-lg shadow-xl">
+    <div className="bg-white p-6 md:p-10 rounded-lg statuscard-shadow">
       <div className="flex flex-col md:flex-row justify-between items-center mb-8 md:mb-16">
-        <h3 className="text-lg md:text-xl font-semibold mb-4 md:mb-0">{title}</h3>
+        <h3 className="text-lg md:text-xl font-semibold mb-4 md:mb-0 border-b-2 border-gray-400">{title}</h3>
         <Dropdown
           value={selectedOption}
           options={options.map((opt) => ({ label: opt, value: opt }))}

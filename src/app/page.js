@@ -54,7 +54,7 @@ export default function Dashboard() {
         {/* Top 5 Performers and Top 5 Fat Leads */}
         <div className="bg-white p-10 rounded-lg shadow-xl ">
           <div className="mb-4">
-            <h3 className="text-lg font-semibold">Top 5 Performers</h3>
+            <h3 className="text-lg font-semibold text-center">Top 5 Performers</h3>
             <div className="grid grid-cols-5 gap-4 mt-4">
               {/* Performer Items */}
               {[...Array(5)].map((_, index) => (
@@ -66,7 +66,7 @@ export default function Dashboard() {
             </div>
           </div>
           <div>
-            <h3 className="text-lg font-semibold">Top 5 Fat Leads</h3>
+            <h3 className="text-lg font-semibold text-center">Top 5 Fat Leads</h3>
             <div className="grid grid-cols-5 gap-4 mt-4">
               {/* Lead Items */}
               {[...Array(5)].map((_, index) => (
@@ -80,8 +80,8 @@ export default function Dashboard() {
         </div>
 
         {/* Current Backend Processing By Bank */}
-        <div className="bg-white p-10 rounded-lg shadow-xl">
-          <h3 className="text-lg font-semibold mb-16">Current Backend Processing By Bank</h3>
+        <div className="bg-white p-10 rounded-lg statuscard-shadow">
+          <h3 className="text-lg font-semibold mb-16  border-b-2 border-gray-400">Current Backend Processing By Bank</h3>
           <div className="flex flex-col items-center">
             <img alt="Processing By Bank Icon" className="mb-4" height="100" src="https://storage.googleapis.com/a1aa/image/K0Au0uuTit84KTitHPbCcYfuA-RsGcJ8CegUb_fxSPA.jpg" width="100" />
             <p  className="text-gray-400">No information available at this time</p>
