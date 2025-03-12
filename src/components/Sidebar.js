@@ -73,12 +73,12 @@ function SidebarContent({ isExpanded, setVisible }) {
           ></i>
         )}
         <ul className="list-none space-y-4">
-          <SidebarItem icon="pi pi-home" label="Home" isExpanded={isExpanded} href="/" />
-          <SidebarItem icon="pi pi-user" label="Admin Board" isExpanded={isExpanded} href="/admin-board" />
+          <SidebarItem icon="bx bx-pie-chart-alt-2" label="Home" isExpanded={isExpanded} href="/" />
+          <SidebarItem icon="bx bx-user" label="Admin Board" isExpanded={isExpanded} href="/admin-board" />
 
           {/* My Work Dropdown */}
           <SidebarDropdown
-            icon="pi pi-briefcase"
+            icon="bx bx-folder"
             label="My Work"
             isOpen={workDropdown}
             toggle={() => setWorkDropdown(!workDropdown)}
@@ -92,15 +92,15 @@ function SidebarContent({ isExpanded, setVisible }) {
             isExpanded={isExpanded}
           />
 
-          <SidebarItem icon="pi pi-check-circle" label="Disbursed Leads" isExpanded={isExpanded} href="/disbursed-leads" />
-          <SidebarItem icon="pi pi-star" label="Customer" isExpanded={isExpanded} href="/customer" />
-          <SidebarItem icon="pi pi-users" label="Users" isExpanded={isExpanded} href="/users" />
-          <SidebarItem icon="pi pi-ban" label="DND" isExpanded={isExpanded} href="/dnd" />
-          <SidebarItem icon="pi pi-send" label="Campaign" isExpanded={isExpanded} href="/campaign" />
+          <SidebarItem icon="bx bx-check-shield" label="Disbursed Leads" isExpanded={isExpanded} href="/disbursed-leads" />
+          <SidebarItem icon="bx bx-star" label="Customer" isExpanded={isExpanded} href="/customer" />
+          <SidebarItem icon="bx bx-user-pin" label="Users" isExpanded={isExpanded} href="/users" />
+          <SidebarItem icon="bx bx-block" label="DND" isExpanded={isExpanded} href="/dnd" />
+          <SidebarItem icon="bx bx-send" label="Campaign" isExpanded={isExpanded} href="/campaign" />
 
           {/* Monitoring Dropdown */}
           <SidebarDropdown
-            icon="pi pi-headphones"
+            icon="bx bx-headphone"
             label="Monitoring"
             isOpen={monitorDropdown}
             toggle={() => setMonitorDropdown(!monitorDropdown)}
@@ -112,8 +112,8 @@ function SidebarContent({ isExpanded, setVisible }) {
             ]}
             isExpanded={isExpanded}
           />
-          <SidebarItem icon="pi pi-building-columns" label="Bank Contact" isExpanded={isExpanded} href="/bank-contact" />
-          <SidebarItem icon="pi pi-link" label="Connector" isExpanded={isExpanded} href="/connector" />
+          <SidebarItem icon="bx bxs-bank" label="Bank Contact" isExpanded={isExpanded} href="/bank-contact" />
+          <SidebarItem icon="bx bx-share-alt" label="Connector" isExpanded={isExpanded} href="/connector" />
         </ul>
       </div>
     </div>

@@ -10,7 +10,7 @@ export default function MissedCall({ activeIndex, setActiveIndex }) {
   ];
 
   return (
-    <div>
+    <div className="overflow-hidden">
       <TabMenu
         model={items}
         activeIndex={activeIndex}

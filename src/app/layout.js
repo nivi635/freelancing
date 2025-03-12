@@ -3,6 +3,7 @@ import "./globals.css";
 import CustomPrimeReactProvider from "@/providers/CustomPrimeReactProvider";
 import DashboardWrapper from "@/components/Wrappers/DashboardWrapper";
 
+
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],

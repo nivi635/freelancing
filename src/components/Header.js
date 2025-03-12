@@ -14,6 +14,8 @@ export default function Header() {
         <div className="flex items-center gap-4">
           {/* Visible Links for Larger Screens */}
           <div className="hidden md:flex items-center gap-4">
+          <button className="bg-black text-white px-4 py-1 rounded-md">Create</button>
+
             <a className="text-blue-500 hover:underline" href="#">
               Tutorial
             </a>
@@ -33,31 +35,32 @@ export default function Header() {
           {/* Mobile-Friendly Icons (Shown on Small Screens) */}
           <div className="flex md:hidden items-center gap-3">
             <a href="#" className="text-gray-600 text-xl" aria-label="Tutorial">
-              <i className="pi pi-book"></i>
+              <i className="bx bx-book"></i>
             </a>
             <a
               href="#"
               className="text-gray-600 text-xl"
               aria-label="EMI Calculator"
             >
-              <i className="pi pi-calculator"></i>
+              <i className="bx bxs-calculator"></i>
             </a>
             {isLiveCall ? (  <a href="#" className="text-green-600 text-xl" aria-label="Tutorial">
-              <i className="pi pi-phone"></i>
-            </a>): ( <a href="#" className="text-gray-600 text-xl" aria-label="Tutorial">
-              <i className="pi pi-phone "></i>
+              <i className="bx bxs-phone"></i>
+            </a>): ( <a href="#" className="text-red-600 text-xl" aria-label="Tutorial">
+              <i className="bx bx-phone "></i>
             </a>)}
            
           </div>
 
           {/* Notification Bell & Avatar (Always Visible) */}
           <div className="relative">
-            <i className="pi pi-bell p-overlay-badge text-xl cursor-pointer">
-              <Badge value="2" severity="danger"></Badge>
+            <i className="bx bx-bell p-overlay-badge text-2xl cursor-pointer">
+              <Badge value="2" severity="danger"  size="small"
+    className="absolute top-1 right-1"></Badge>
             </i>
           </div>
           <Avatar
-            icon="pi pi-user"
+            icon="bx bx-user"
             size="small"
             style={{ backgroundColor: "#2196F3", color: "#ffffff" }}
             shape="circle"
@@ -66,7 +69,7 @@ export default function Header() {
         </div>
       </div>
       <p className="ml-1 text-gray-600 italic text-sm">
-        <i className="pi pi-lightbulb text-sm" style={{ color: "yellow" }}></i> The only
+        <i className="bx bx-bulb text-sm" style={{ color: "yellow" }}></i> The only
         way to do great work is to love what you do - Steve Jobs
       </p>
     </div>

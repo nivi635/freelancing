@@ -132,9 +132,9 @@ const TableComponent = () => {
       </div>
       {/* Table */}
       <div className="overflow-x-auto shadow-md rounded-lg">
-        <table className=" table-auto rounded-lg min-w-full">
+        <table className=" table-auto rounded-lg min-w-full ">
           {/* Table Header */}
-          <thead className="border-b-2 border-primary text-gray-700">
+          <thead className="border-b-2 border-primary text-gray-700 ">
             <tr>
               <th className="px-4 py-2 border border-white text-center">#</th>
               <th className="px-4 py-2 border border-white text-center">

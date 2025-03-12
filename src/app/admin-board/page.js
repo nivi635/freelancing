@@ -16,8 +16,8 @@ export default function AdminBoard() {
       <div className="flex-1 grid grid-cols-1 md:grid-cols-2 gap-2 w-full ">
       <AdminStatusCard title="Today" statuses={statuses} />
       <AdminStatusCard title="Yesterday" statuses={statuses} />
-      <AdminStatusCard title="Today" statuses={statuses} />
-      <AdminStatusCard title="Yesterday" statuses={statuses} />
+      <AdminStatusCard title="Month " statuses={statuses} />
+      <AdminStatusCard title="Last Month" statuses={statuses} />
       </div>
 
    <CustomFilterDemo/>
