@@ -1,11 +1,5 @@
 "use client";
 import React, { useState } from "react";
-import { Button } from "primereact/button";
-import { InputText } from "primereact/inputtext";
-import { Checkbox } from "primereact/checkbox";
-import { Badge } from "primereact/badge";
-import { DataTable } from "primereact/datatable";
-import { Column } from "primereact/column";
 import CustomEditor from "@/components/dashboardComponents/ColdCalling/Editor";
 import CallLogs from "@/components/dashboardComponents/ColdCalling/CallLogsTable";
 

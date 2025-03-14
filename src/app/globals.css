@@ -1,12 +1,12 @@
 /* Import Google Font */
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
-
 /* Tailwind & PrimeReact */
-/* @import 'primereact/resources/themes/saga-blue/theme.css'; */
+
 @import 'primereact/resources/themes/lara-light-blue/theme.css';
 @import 'primereact/resources/primereact.min.css';
 @import 'primeicons/primeicons.css';
 @import 'boxicons/css/boxicons.min.css';
+
 
 @tailwind base;
 @tailwind components;

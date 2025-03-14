@@ -55,7 +55,7 @@ export default function Header() {
           {/* Notification Bell & Avatar (Always Visible) */}
           <div className="relative">
             <i className="bx bx-bell p-overlay-badge text-2xl cursor-pointer">
-              <Badge value="2" severity="danger"  size="small"
+              <Badge value="2" severity='danger'  size="small"
     className="absolute top-1 right-1"></Badge>
             </i>
           </div>

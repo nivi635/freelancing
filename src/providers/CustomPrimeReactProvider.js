@@ -4,6 +4,7 @@ import React from "react";
 import { PrimeReactProvider } from "primereact/api";
 import classNames from "classnames";
 
+
 const Tailwind = {
   tabmenu: {
     root: "overflow-auto font-sans p-3",
@@ -88,7 +89,7 @@ dialog: {
       className: classNames('shrink-0 ', 'border-t-0 bg-white text-gray-700 px-6 pb-6 text-right rounded-b-lg', 'dark:bg-gray-900  dark:text-white/80')
   },
   mask: ({ state }) => ({
-      className: classNames('transition duration-200', { 'bg-black/40': state.containerVisible })
+      className: classNames('transition duration-200 ', { 'bg-black-40': state.containerVisible })
   }),
   transition: ({ props }) => {
       return props.position === 'top'
@@ -131,7 +132,7 @@ dialog: {
 
 export default function CustomPrimeReactProvider({ children }) {
   return (
-    <PrimeReactProvider value={{ pt: Tailwind }}>
+    <PrimeReactProvider value={{ pt: Tailwind ,ptOptions: { mergeSections: true, mergeProps: true }}}>
       {children}
     </PrimeReactProvider>
   );

@@ -30,6 +30,10 @@ module.exports = {
           900: '#1a202c',
         },
         white: '#ffffff',
+        black: {
+          DEFAULT: '#000000',
+          40: 'rgba(0, 0, 0, 0.4)', // Adding black/40
+        },
         blue: {
           500: '#3b82f6',
         },

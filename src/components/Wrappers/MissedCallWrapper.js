@@ -1,7 +1,7 @@
 'use client'; // ✅ This ensures it's a Client Component
 
 import React, { useState } from 'react';
-import MissedCall from '../dashboardComponents/MissedCall';
+import MissedCall from '../dashboardComponents/MissedCall/MissedCall';
 
 export default function MissedCallWrapper() {
   

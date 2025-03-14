@@ -1,3 +1,5 @@
-export default function Campaign() {
-  return <div>This page is not developed.</div>;
+import CampaignWrapper from '@/components/Wrappers/campaignWrapper';
+
+export default function Page() {
+  return <CampaignWrapper />;
 }
