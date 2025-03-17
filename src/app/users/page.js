@@ -1,14 +1,12 @@
 "use client";
 import React, { useState } from "react";
 import CustomDropdown from "@/components/CustomDropdown";
+import InputFloating from "@/components/InputFloating";
 const UserManagement = () => {
   const [mobile, setMobile] = useState("");
   const [displayName, setDisplayName] = useState("");
   const [userType, setUserType] = useState("User");
   const [searchTerm, setSearchTerm] = useState("");
-  const [isMobileFocused, setIsMobileFocused] = useState(false);
-  const [isDisplayNameFocused, setIsDisplayNameFocused] = useState(false);
-
   const [users, setUsers] = useState([
     {
       id: 1,
@@ -49,45 +47,14 @@ const UserManagement = () => {
   return (
     <div className="p-4">
       {/* Add User Section */}
-      <div className="flex flex-wrap gap-4 mb-6 w-[90%] lg:pr-24 ">
-        <div className="relative w-full sm:w-1/4">
-          <label
-            className={`absolute left-3 transition-all pointer-events-none px-1 bg-white ${
-              isMobileFocused || mobile
-                ? "text-sm -top-2 text-primary-light"
-                : "text-gray-700 top-3"
-            }`}
-          >
-            Mobile *
-          </label>
-          <input
-            type="text"
-            className="w-full rounded-md py-3 px-4 focus:outline-none bg-white border border-gray-400"
-            value={mobile}
-            onChange={(e) => setMobile(e.target.value)}
-            onFocus={() => setIsMobileFocused(true)}
-            onBlur={() => setIsMobileFocused(mobile !== "")}
-          />
-        </div>
-        <div className="relative w-full sm:w-1/4">
-          <label
-            className={`absolute left-3 transition-all pointer-events-none px-1 bg-white ${
-              isDisplayNameFocused || displayName
-                ? "text-sm -top-2 text-primary-light"
-                : "text-gray-700 top-3"
-            }`}
-          >
-            Display Name *
-          </label>
-          <input
-            type="text"
-            className="w-full rounded-md py-3 px-4 focus:outline-none bg-white border border-gray-400"
-            value={displayName}
-            onChange={(e) => setDisplayName(e.target.value)}
-            onFocus={() => setIsDisplayNameFocused(true)}
-            onBlur={() => setIsDisplayNameFocused(displayName !== "")}
-          />
-        </div>
+      <div className="flex flex-wrap gap-4 mb-6 lg:pr-24 ">
+        <InputFloating label={"Mobile *"} value={mobile}   onChange={setMobile}
+  className=" w-full sm:w-1/4"/>
+        
+        <InputFloating label={"Display Name *"} value={displayName}   onChange={setDisplayName}
+  className=" w-full sm:w-1/4"/>
+        
+   
         {/* Dropdown Section */}
         <CustomDropdown
           label="Access Type *"
@@ -105,54 +72,52 @@ const UserManagement = () => {
       </div>
 
       {/* Search Bar */}
-      <div className="mb-4 w-full lg:pr-18">
-        <input
-          type="text"
-          placeholder="Search Here"
-          className="w-full rounded py-2 px-3 border border-primary focus:outline-none w-1/1.5"
-          value={searchTerm}
-          onChange={(e) => setSearchTerm(e.target.value)}
-        />
+      <div className="mb-4">
+      <InputFloating label={"Search Here"} value={searchTerm}   onChange={setSearchTerm}
+  className=" w-full "/>
       </div>
-
+     
       {/* User Table */}
       <div className="overflow-x-auto">
         <table className="min-w-full bg-white">
           <thead>
-            <tr className="bg-gray-100">
-              <th className="py-4 px-4 border-b border-gray-300 text-left text-gray-600">
+            <tr >
+              <th className="py-4 px-4 border-b whitespace-nowrap border-gray-300 text-left text-gray-600">
                 #
               </th>
-              <th className="py-4 px-4 border-b border-gray-300 text-left text-gray-600">
+              <th className="py-4 px-4 border-b whitespace-nowrap border-gray-300 text-left text-gray-600">
                 User Name
               </th>
-              <th className="py-4 px-4 border-b border-gray-300 text-left text-gray-600">
+              <th className="py-4 px-4 border-b whitespace-nowrap border-gray-300 text-left text-gray-600">
                 Display Name
               </th>
-              <th className="py-4 px-4 border-b border-gray-300 text-left text-gray-600">
+              <th className="py-4 px-4 border-b whitespace-nowrap border-gray-300 text-left text-gray-600">
                 Access Type
               </th>
-              <th className="py-4 px-4 border-b border-gray-300 text-left text-gray-600">
+              <th className="py-4 px-4 border-b whitespace-nowrap border-gray-300 text-left text-gray-600">
                 Org
               </th>
-              <th className="py-4 px-4 border-b border-gray-300 text-left text-gray-600">
+              <th className="py-4 px-4 border-b whitespace-nowrap border-gray-300 text-left text-gray-600">
                 Designation
               </th>
-              <th className="py-4 px-4 border-b border-gray-300 text-left text-gray-600">
+              <th className="py-4 px-4 border-b whitespace-nowrap border-gray-300 text-left text-gray-600">
                 Email
               </th>
-              <th className="py-4 px-4 border-b border-gray-300 text-left text-gray-600">
+              <th className="py-4 px-4 border-b whitespace-nowrap border-gray-300 text-left text-gray-600">
                 Status
+              </th>
+              <th className="py-4 px-4 border-b whitespace-nowrap border-gray-300 text-left text-gray-600">
+                
               </th>
             </tr>
           </thead>
           <tbody>
             {users.map((user) => (
               <tr key={user.id} className="border-b border-gray-300">
-                <td className="py-4 px-4">{user.id}</td>
-                <td className="py-4 px-4">{user.userName}</td>
-                <td className="py-4 px-4">{user.displayName}</td>
-                <td className="py-4 px-4">
+                <td className="py-4 whitespace-nowrap px-4">{user.id}</td>
+                <td className="py-4 whitespace-nowrap px-4">{user.userName}</td>
+                <td className="py-4 whitespace-nowrap px-4">{user.displayName}</td>
+                <td className="py-4 whitespace-nowrap px-4 w-full sm:w-60">
                   <select
                     value={user.accessType}
                     onChange={(e) =>
@@ -164,15 +129,16 @@ const UserManagement = () => {
                     <option value="Admin">Admin</option>
                   </select>
                 </td>
-                <td className="py-4 px-4">{user.org}</td>
-                <td className="py-4 px-4">{user.designation}</td>
-                <td className="py-4 px-4">{user.email}</td>
-                <td className="py-4 px-4">
+                <td className="py-4 whitespace-nowrap px-4">{user.org}</td>
+                <td className="py-4 whitespace-nowrap px-4">{user.designation}</td>
+                <td className="py-4 whitespace-nowrap px-4">{user.email}</td>
+                <td className="py-4 whitespace-nowrap px-4">
                   <span className="bg-green-100 text-green-800 rounded-full px-3 py-1 text-sm font-bold">
                     <i className="bx bxs-circle text-green-800 text-xs mr-1"></i>
                     {user.status}
                   </span>
                 </td>
+                <td className="py-4 whitespace-nowrap px-10 cursor-pointer"><i className='bx bx-dots-vertical-rounded text-gray-400 text-lg' ></i></td>
               </tr>
             ))}
           </tbody>

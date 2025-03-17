@@ -95,29 +95,29 @@ const MyMissedCall = () => {
       <div className="overflow-x-auto shadow-md rounded-lg">
         <table className=" table-auto rounded-lg min-w-full ">
           {/* Table Header */}
-          <thead className="border-b-2 border-primary text-gray-700 ">
-            <tr>
-              <th className="px-4 py-2 border border-white text-center">#</th>
-              <th className="px-4 py-2 border border-white text-center">
+          <thead >
+            <tr className="border-b-2 border-primary text-gray-700 ">
+              <th className="px-4 py-2 text-center">#</th>
+              <th className="px-4 py-2 text-center">
                 Mobile
               </th>
-              <th className="px-4 py-2 border border-white text-center">
+              <th className="px-4 py-2 text-center">
                 Campaign
               </th>
-              <th className="px-4 py-2 border border-white text-center">
+              <th className="px-4 py-2 text-center">
                 Queue
               </th>
-              <th className="px-4 py-2 border border-white text-center">
+              <th className="px-4 py-2 text-center">
                 Customer Name
               </th>
-              <th className="px-4 py-2 border border-white text-center">
+              <th className="px-4 py-2 text-center">
                 Direction
               </th>
-              <th className="px-4 py-2 border border-white text-center">
+              <th className="px-4 py-2 text-center">
                 Call Date
               </th>
 
-              <th className="px-4 py-2 border border-white text-center">-</th>
+              <th className="px-4 py-2 text-center">-</th>
             </tr>
           </thead>
           {/* Table Body */}
@@ -125,32 +125,32 @@ const MyMissedCall = () => {
             {data.map((item, index) => (
               <tr
                 key={item.id}
-                className={`border-white hover:bg-gray-300 ${
+                className={` hover:bg-gray-300 ${
                   index % 2 === 0 ? "bg-white" : "bg-gray-200"
                 }`}
               >
-                <td className="px-4 py-2 border border-white text-center">
+                <td className="px-4 py-2 border-r-2 border-white text-center">
                   {item.id}
                 </td>
-                <td className="px-4 py-2 border border-white text-center">
+                <td className="px-4 py-2 border-r-2 border-white text-center">
                   {item.mobile}
                 </td>
-                <td className="px-4 py-2 border border-white text-center">
+                <td className="px-4 py-2 border-r-2 border-white text-center">
                   {item.campaign}
                 </td>
-                <td className="px-4 py-2 border border-white text-center">
+                <td className="px-4 py-2 border-r-2 border-white text-center">
                   {item.queue}
                 </td>
-                <td className="px-4 py-2 border border-white text-center">
+                <td className="px-4 py-2 border-r-2 border-white text-center">
                   {item.customer}
                 </td>
-                <td className="px-4 py-2 border border-white text-center">
+                <td className="px-4 py-2 border-r-2 border-white text-center">
                   {item.direction}
                 </td>
-                <td className="px-4 py-2 border border-white text-center">
+                <td className="px-4 py-2 border-r-2 border-white text-center">
                   {item.callDate}
                 </td>
-                <td className="px-4 py-2 border border-white text-center flex gap-2">
+                <td className="px-4 py-2   text-center flex gap-2">
 
                   <button className="border border-green-500 text-green-500 text-xs px-3 py-1 rounded-lg">
                     Lead

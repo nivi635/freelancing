@@ -38,18 +38,17 @@ const DateTimePickerModal = ({ visible, onHide }) => {
       visible={visible}
       onHide={onHide}
       header="Select Time"
-      className="w-[350px] md:w-[400px]"
-
+      className="w-9/12  lg:w-1/3"
       closable
       draggable={false}
       modal
     >
-      <div className="p-2  flex-1 flex flex-col ">
-        <div className="flex gap-2 mb-5 ">
+      <div className="w-full   ">
+        <div className="flex gap-2 mb-5 flex-wrap lg:flex-nowrap ">
           {recentDays.map((date, index) => (
             <button
               key={index}
-              className={`px-6 py-1 rounded-md border border-gray-400  ${
+              className={`px-6  py-1 rounded-md border border-gray-400  ${
                 selectedDate.toDateString() === date.toDateString()
                   ? "bg-blue-600 text-white"
                   : "bg-white text-gray-700"
@@ -89,7 +88,7 @@ const DateTimePickerModal = ({ visible, onHide }) => {
             {hours.map((hour) => (
               <button
                 key={hour}
-                className={`px-2 py-2 rounded-md border border-gray-400 ${
+                className={`px-2 py-1 rounded-md border border-gray-400 ${
                   selectedHour === hour
                     ? "bg-blue-500 text-white"
                     : "bg-white text-gray-700"

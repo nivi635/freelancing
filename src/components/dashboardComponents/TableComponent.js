@@ -2,6 +2,7 @@
 import React, { useState } from "react";
 import { Dialog } from "primereact/dialog";
 import CustomDropdown from "../CustomDropdown";
+import InputFloating from "../InputFloating";
 
 const TableComponent = () => {
   const [searchTerm, setSearchTerm] = useState("");
@@ -108,30 +109,8 @@ const TableComponent = () => {
     <div className="p-4 sm:p-6 flex-1 max-w-full overflow-x-hidden">
       {/* Search Box */}
       <div className="gap-2 mb-2 flex justify-content-center">
-        <div className="relative w-full sm:3/2 md:w-1/2 lg:w-1/4 border border-primary rounded">
-          <input
-            type="text"
-            id="searchTerm"
-            className="block w-full px-2.5 pb-2.5 pt-4 text-sm text-gray-900 bg-transparent rounded-lg border-1 border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-blue-600 peer"
-            value={searchTerm}
-            onChange={(e) => setSearchTerm(e.target.value)}
-            onFocus={() => setInputFocused(true)}
-            onBlur={() => setInputFocused(searchTerm !== "")}
-          />
-          <label
-            htmlFor="searchTerm"
-            className={`absolute text-sm text-gray-500 duration-300 transform origin-[0] bg-white px-2 
-              ${
-                inputFocused
-                  ? "-translate-y-4 scale-75 top-2 peer-focus:px-2 peer-focus:text-blue-600"
-                  : searchTerm !== ""
-                  ? "-translate-y-4 scale-75 top-2 peer-focus:px-2 peer-focus:text-blue-600"
-                  : "scale-100 -translate-y-1/2 top-1/2"
-              }`}
-          >
-            LastNDays (Enter 0 for today)
-          </label>
-        </div>
+
+        <InputFloating label={" LastNDays (Enter 0 for today)"} value={searchTerm} onChange={setSearchTerm} className="relative w-full sm:3/2 md:w-1/2 lg:w-1/4" />
         <button className="bg-primary text-white px-4 py-2 rounded-md hover:bg-primary-dark">
           Search
         </button>
@@ -140,31 +119,31 @@ const TableComponent = () => {
       <div className="overflow-x-auto shadow-md rounded-lg">
         <table className=" table-auto rounded-lg min-w-full ">
           {/* Table Header */}
-          <thead className="border-b-2 border-primary text-gray-700 ">
-            <tr>
-              <th className="px-4 py-2 border border-white text-center">#</th>
-              <th className="px-4 py-2 border border-white text-center">
+          <thead >
+            <tr className="border-b-2 border-primary text-gray-700 "> 
+              <th className="px-4 py-2 text-center whitespace-nowrap">#</th>
+              <th className="px-4 py-2 text-center whitespace-nowrap">
                 Mobile
               </th>
-              <th className="px-4 py-2 border border-white text-center">
+              <th className="px-4 py-2 text-center whitespace-nowrap">
                 Campaign
               </th>
-              <th className="px-4 py-2 border border-white text-center">
+              <th className="px-4 py-2 text-center whitespace-nowrap">
                 Queue
               </th>
-              <th className="px-4 py-2 border border-white text-center">
+              <th className="px-4 py-2 text-center whitespace-nowrap">
                 Customer Name
               </th>
-              <th className="px-4 py-2 border border-white text-center">
+              <th className="px-4 py-2 text-center whitespace-nowrap">
                 Direction
               </th>
-              <th className="px-4 py-2 border border-white text-center">
+              <th className="px-4 py-2 text-center whitespace-nowrap">
                 Call Date
               </th>
-              <th className="px-4 py-2 border border-white text-center">
+              <th className="px-4 py-2 text-center whitespace-nowrap">
                 Assigned
               </th>
-              <th className="px-4 py-2 border border-white text-center">-</th>
+              <th className="px-4 py-2 text-center whitespace-nowrap">-</th>
             </tr>
           </thead>
           {/* Table Body */}
@@ -172,35 +151,35 @@ const TableComponent = () => {
             {filteredData.map((item, index) => (
               <tr
                 key={item.id}
-                className={`border-white hover:bg-gray-300 ${
+                className={` hover:bg-gray-300 ${
                   index % 2 === 0 ? "bg-white" : "bg-gray-200"
                 }`}
               >
-                <td className="px-4 py-2 border border-white text-center">
+                <td className="px-4 py-2 border-r-2 whitespace-nowrap border-white text-center">
                   {item.id}
                 </td>
-                <td className="px-4 py-2 border border-white text-center">
+                <td className="px-4 py-2 border-r-2 whitespace-nowrap border-white text-center">
                   {item.mobile}
                 </td>
-                <td className="px-4 py-2 border border-white text-center">
+                <td className="px-4 py-2 border-r-2 whitespace-nowrap border-white text-center">
                   {item.campaign}
                 </td>
-                <td className="px-4 py-2 border border-white text-center">
+                <td className="px-4 py-2 border-r-2 whitespace-nowrap border-white text-center">
                   {item.queue}
                 </td>
-                <td className="px-4 py-2 border border-white text-center">
+                <td className="px-4 py-2 border-r-2 whitespace-nowrap border-white text-center">
                   {item.customer}
                 </td>
-                <td className="px-4 py-2 border border-white text-center">
+                <td className="px-4 py-2 border-r-2 whitespace-nowrap border-white text-center">
                   {item.direction}
                 </td>
-                <td className="px-4 py-2 border border-white text-center">
+                <td className="px-4 py-2 border-r-2 whitespace-nowrap border-white text-center">
                   {item.callDate}
                 </td>
-                <td className="px-4 py-2 border border-white text-center">
+                <td className="px-4 py-2 border-r-2 whitespace-nowrap border-white text-center">
                   {item.assigned}
                 </td>
-                <td className="px-4 py-2 border border-white text-center flex gap-2">
+                <td className="px-4 py-2  text-center flex gap-2">
                   <button
                     className="border border-green-500 text-green-500 text-xs px-3 py-1 rounded-lg"
                     onClick={() => setIsModalOpen(true)}

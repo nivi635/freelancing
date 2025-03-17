@@ -1,4 +1,6 @@
 'use client';
+import CustomDropdown from "@/components/CustomDropdown";
+import InputFloating from "@/components/InputFloating";
 import React, { useState, useCallback } from "react";
 import { useDropzone } from 'react-dropzone';
 
@@ -19,7 +21,7 @@ export default  function  DNDComponent() {
 
   const { getRootProps, getInputProps, isDragActive } = useDropzone({ onDrop });
 
-  const agentNames = [
+  const banknames = [
     { name: "Indian", value: "Indian" },
     { name: "HDFC", value: "HDFC" },
     { name: "SBI", value: "SBI" },
@@ -56,82 +58,8 @@ export default  function  DNDComponent() {
 
         {/* Add CMD Section */}
         <div className="flex flex-col sm:flex-row gap-2">
-          <div className="relative rounded w-full sm:w-1/2">
-            {/* Floating Label */}
-            <label
-              className={`absolute left-3 transition-all pointer-events-none px-1 bg-white ${
-                isFocused || selectedBank
-                  ? "text-sm -top-2 text-primary-light"
-                  : "text-gray-700 top-3"
-              }`}
-            >
-              Bank Name *
-            </label>
-
-            {/* Dropdown */}
-            <select
-              className="w-full rounded-md py-3 px-4 focus:outline-none bg-white appearance-none border border-gray-400"
-              value={selectedBank}
-              onChange={(e) => {
-                setSelectedBank(e.target.value);
-                setIsOpen(false);
-              }}
-              onFocus={() => {
-                setIsFocused(true);
-                setIsOpen(true);
-              }}
-              onBlur={() => {
-                setIsFocused(selectedBank !== "");
-                setIsOpen(false);
-              }}
-            >
-              <option value="" hidden></option>
-              {agentNames.map((option, index) => (
-                <option
-                  key={index}
-                  value={option.value}
-                  disabled={option.value === ""}
-                >
-                  {option.name}
-                </option>
-              ))}
-            </select>
-
-            {/* Dropdown Icon */}
-            <i
-              className={`bx ${
-                isOpen ? "bxs-down-arrow" : "bxs-up-arrow"
-              } absolute top-4 right-2 text-gray-500 pointer-events-none transition-all text-xs`}
-            ></i>
-          </div>
-          <div className="relative rounded w-full sm:w-1/2 mt-2 sm:mt-0">
-            {/* Floating Label */}
-            <label
-              className={`absolute left-3 transition-all pointer-events-none px-1 bg-white ${
-                isInputFocused || inputValue
-                  ? "text-sm -top-2 text-primary-light"
-                  : "text-gray-700 top-3"
-              }`}
-            >
-              Mobile *
-            </label>
-
-            {/* Input */}
-            <input
-              type="text"
-              className="w-full rounded-md py-3 px-4 focus:outline-none bg-white border border-gray-400"
-              value={inputValue}
-              onChange={(e) => {
-                setInputValue(e.target.value);
-              }}
-              onFocus={() => {
-                setIsInputFocused(true);
-              }}
-              onBlur={() => {
-                setIsInputFocused(inputValue !== "");
-              }}
-            />
-          </div>
+          <CustomDropdown label={"Bank Name *"} options={banknames} value={selectedBank} onChange={setSelectedBank} className="w-full sm:w-1/2"/>
+          <InputFloating label={" Mobile *"} value={inputValue} onChange={setInputValue} className="w-full sm:w-1/2"/>
           <button className="bg-primary text-white rounded w-full sm:w-1/4 ml-0 sm:ml-3 mt-2 sm:mt-0">
             Add DND
           </button>

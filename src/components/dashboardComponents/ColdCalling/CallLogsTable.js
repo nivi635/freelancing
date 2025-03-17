@@ -10,7 +10,7 @@ const CallLogs = () => {
     { id: 1, mobile: "8050524825", name: "", time: "23/01/2025 05:15", due: "Overdue" },
     { id: 2, mobile: "9880882021", name: "", time: "23/01/2025 06:30", due: "Overdue" },
     { id: 3, mobile: "9880882021", name: "", time: "23/01/2025 06:30", due: "Overdue" },
-    { id: 4, mobile: "9880882021", name: "Mrs.SUHASINI PRASHANT URANKAR", time: "23/01/2025 06:30", due: "Future" },
+    { id: 4, mobile: "9880882021", name: "Mrs.SUHASINI", time: "23/01/2025 06:30", due: "Future" },
   ];
 
   // Filter function for search
@@ -39,23 +39,23 @@ const CallLogs = () => {
 
           {/* Table */}
           <div className="overflow-x-auto">
-            <table className="w-full border-separate border-spacing-x-2 text-sm table-auto">
+            <table className="w-full text-sm table-auto">
               <thead>
-                <tr>
-                  <th className="p-3 text-center border-b-2 border-primary">#</th>
-                  <th className="p-3 text-center border-b-2 border-primary min-w-[120px]">Mobile</th>
-                  <th className="min-w-[150px] p-3 text-center border-b-2 border-primary">Name</th>
-                  <th className="min-w-[120px] p-3 text-center border-b-2 border-primary">Disposition</th>
-                  <th className="min-w-[80px] p-3 text-center border-b-2 border-primary">Total Time</th>
+                <tr className="border-b-2 border-primary">
+                  <th className="p-3 text-center ">#</th>
+                  <th className="p-3 text-center  min-w-[120px]">Mobile</th>
+                  <th className="min-w-[150px] p-3 text-center ">Name</th>
+                  <th className="min-w-[120px] p-3 text-center ">Disposition</th>
+                  <th className="min-w-[80px] p-3 text-center ">Total Time</th>
                 </tr>
               </thead>
               <tbody>
                 {completedCalls.map((call, index) => (
                   <tr key={call.id} className={`${index % 2 === 0 ? "bg-gray-100" : "bg-gray-300"} text-center`}>
-                    <td className="p-3">{index + 1}</td>
-                    <td className="p-3">{call.mobile}</td>
-                    <td className="p-3">{call.name}</td>
-                    <td className="p-3">{call.disposition}</td>
+                    <td className="p-3 border-r-2">{index + 1}</td>
+                    <td className="p-3 border-r-2">{call.mobile}</td>
+                    <td className="p-3 border-r-2">{call.name}</td>
+                    <td className="p-3 border-r-2">{call.disposition}</td>
                     <td className="p-3">{call.time}</td>
                   </tr>
                 ))}
@@ -100,16 +100,16 @@ const CallLogs = () => {
                       call.due === "Overdue" ? "bg-red-300" : "bg-blue-300"
                     } ${index % 2 === 0 ? "bg-gray-100" : "bg-gray-300"}`}
                   >
-                    <td className="p-1 border">
+                    <td className="p-2 border whitespace-nowrap">
                       {call.mobile}
                       <button className="bg-gradient-to-t from-lime-600 to-lime-400 h-6 w-6 rounded-sm p-1 ml-2">
                         <i className="bx bxs-phone text-white text-center"></i>
                       </button>
                     </td>
-                    <td className="p-1 border">{call.name}</td>
-                    <td className="p-1 border">{call.time}</td>
-                    <td className="p-1 border">{call.due}</td>
-                    <td className="p-1 border">
+                    <td className="p-2 whitespace-nowrap border">{call.name}</td>
+                    <td className="p-2 whitespace-nowrap border">{call.time}</td>
+                    <td className="p-2 whitespace-nowrap border">{call.due}</td>
+                    <td className="p-2 whitespace-nowrap border">
                       <button>
                         <i className="bx bxs-trash text-red-700 text-lg"></i>
                       </button>

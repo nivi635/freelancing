@@ -178,7 +178,7 @@ const CallCenterDashboard = () => {
   const [isDateFocused, setIsDateFocused] = useState(false);
 
   return (
-    <div className="font-sans bg-gray-100 min-h-screen p-4">
+    <div className="font-sans min-h-screen p-4">
       <div className="flex justify-between items-center mb-4">
         <div className="flex items-center justify-between  p-2">
           {/* <div className="relative w-full sm:w-1/4">
