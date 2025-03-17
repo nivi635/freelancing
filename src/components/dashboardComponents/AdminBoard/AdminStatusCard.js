@@ -9,7 +9,7 @@ const AdminStatusCard = ({ title, statuses }) => {
           <div key={index} className="flex items-center mb-2 text-gray-700 w-full md:w-auto">
             <div className="flex flex-1 flex-col items-center md:items-start">
               <div className="flex flex-1 items-center">
-                <span className="bg-black text-white rounded-sm p-1 w-full text-center flex justify-center items-center mr-2">
+                <span className="bg-black text-white rounded-md p-1 w-full text-center flex justify-center items-center mr-2">
                   {status.count}
                 </span>
                 <span className="text-center md:text-left break-words">{status.label}</span>

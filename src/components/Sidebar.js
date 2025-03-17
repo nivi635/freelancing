@@ -114,6 +114,8 @@ function SidebarContent({ isExpanded, setVisible }) {
           />
           <SidebarItem icon="bx bxs-bank" label="Bank Contact" isExpanded={isExpanded} href="/bank-contact" />
           <SidebarItem icon="bx bx-share-alt" label="Connector" isExpanded={isExpanded} href="/connector" />
+          <SidebarItem icon="bx bx-phone" label="Dialer" isExpanded={isExpanded} href="/dialer" />
+          <SidebarItem icon="bx bx-git-repo-forked" label="Organization" isExpanded={isExpanded} href="/organization" />
         </ul>
       </div>
     </div>

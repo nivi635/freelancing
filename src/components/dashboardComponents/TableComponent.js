@@ -1,13 +1,13 @@
 "use client";
 import React, { useState } from "react";
 import { Dialog } from "primereact/dialog";
+import CustomDropdown from "../CustomDropdown";
 
 const TableComponent = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedAgent, setSelectedAgent] = useState("");
-  const [isFocused, setIsFocused] = useState(false);
-  const [isOpen, setIsOpen] = useState(false);
+
 
   const [inputFocused, setInputFocused] = useState(false);
   const agentNames = [
@@ -237,55 +237,13 @@ const TableComponent = () => {
 
         <div className="m-4 mt-7 flex flex-col sm:flex-row gap-3 justify-center items-center">
           {/* Dropdown Container */}
-          <div className="relative border border-primary-light rounded w-full sm:w-1/2">
-            {/* Floating Label */}
-            <label
-              className={`absolute left-3 transition-all pointer-events-none px-1 bg-white 
-          ${
-            isFocused || selectedAgent
-              ? "text-sm -top-2 text-primary-light"
-              : "text-gray-700 top-2"
-          }`}
-            >
-              Agents
-            </label>
-
-            {/* Dropdown */}
-            <select
-              className="w-full rounded-md py-2 px-3 focus:outline-none bg-white appearance-none"
-              value={selectedAgent}
-              onChange={(e) => {
-                setSelectedAgent(e.target.value);
-                setIsOpen(false);
-              }}
-              onFocus={() => {
-                setIsFocused(true);
-                setIsOpen(true);
-              }}
-              onBlur={() => {
-                setIsFocused(selectedAgent !== "");
-                setIsOpen(false);
-              }}
-            >
-              <option value="" hidden></option>
-              {agentNames.map((option, index) => (
-                <option
-                  key={index}
-                  value={option.value}
-                  disabled={option.value === ""}
-                >
-                  {option.name}
-                </option>
-              ))}
-            </select>
-
-            {/* Dropdown Icon */}
-            <i
-              className={`pi ${
-                isOpen ? "pi-chevron-up" : "pi-chevron-down"
-              } absolute top-3 right-2 text-gray-500 pointer-events-none transition-all`}
-            ></i>
-          </div>
+          <CustomDropdown
+            label="Agents"
+            options={agentNames}
+            value={selectedAgent}
+            onChange={setSelectedAgent}
+            className="w-full sm:w-1/2 border-primary-light"
+          />
 
           {/* Assign Button */}
           <div className="flex justify-end w-full sm:w-auto">

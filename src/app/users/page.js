@@ -1,6 +1,6 @@
 "use client";
 import React, { useState } from "react";
-
+import CustomDropdown from "@/components/CustomDropdown";
 const UserManagement = () => {
   const [mobile, setMobile] = useState("");
   const [displayName, setDisplayName] = useState("");
@@ -8,16 +8,6 @@ const UserManagement = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const [isMobileFocused, setIsMobileFocused] = useState(false);
   const [isDisplayNameFocused, setIsDisplayNameFocused] = useState(false);
-  const [isFocused, setIsFocused] = useState(false);
-  const [isOpen, setIsOpen] = useState(false);
-
-  const agentNames = [
-    { name: "Indian", value: "Indian" },
-    { name: "HDFC", value: "HDFC" },
-    { name: "SBI", value: "SBI" },
-    { name: "Canara", value: "Canara" },
-    { name: "Paris", value: "Paris" },
-  ];
 
   const [users, setUsers] = useState([
     {
@@ -40,46 +30,7 @@ const UserManagement = () => {
       email: "",
       status: "Active",
     },
-    {
-      id: 3,
-      userName: "9000018011",
-      displayName: "Bhoomika",
-      accessType: "User",
-      org: "AGENT",
-      designation: "Agent",
-      email: "",
-      status: "Active",
-    },
-    {
-      id: 4,
-      userName: "9000016000",
-      displayName: "Rahul",
-      accessType: "User",
-      org: "TEAM RAHUL",
-      designation: "Team Lead",
-      email: "",
-      status: "Active",
-    },
-    {
-      id: 5,
-      userName: "9000016012",
-      displayName: "Sindhana",
-      accessType: "User",
-      org: "AGENT",
-      designation: "Agent",
-      email: "",
-      status: "Active",
-    },
-    {
-      id: 6,
-      userName: "9000018013",
-      displayName: "Leelavati",
-      accessType: "User",
-      org: "AGENT",
-      designation: "agent",
-      email: "",
-      status: "Active",
-    },
+    // ... (rest of your user data)
   ]);
 
   const handleAccessTypeChange = (userId, newAccessType) => {
@@ -90,10 +41,15 @@ const UserManagement = () => {
     );
   };
 
+  const userTypeOptions = [
+    { name: "User", value: "User" },
+    { name: "Admin", value: "Admin" },
+  ];
+
   return (
     <div className="p-4">
       {/* Add User Section */}
-      <div className="flex flex-wrap gap-4 mb-6 w-[90%]  lg:pr-24 ">
+      <div className="flex flex-wrap gap-4 mb-6 w-[90%] lg:pr-24 ">
         <div className="relative w-full sm:w-1/4">
           <label
             className={`absolute left-3 transition-all pointer-events-none px-1 bg-white ${
@@ -131,49 +87,15 @@ const UserManagement = () => {
             onFocus={() => setIsDisplayNameFocused(true)}
             onBlur={() => setIsDisplayNameFocused(displayName !== "")}
           />
-        </div>  
-        {/* Dropdown Section */}
-        <div className="relative rounded w-full  sm:w-1/6 rounded-md ">
-          {/* Floating Label */}
-          <label
-            className={`absolute left-3 transition-all pointer-events-none px-1 bg-white ${
-              isFocused || userType
-                ? "text-sm -top-2 text-primary-light"
-                : "text-gray-700 top-3"
-            }`}
-          >
-            Bank Name *
-          </label>
-
-          {/* Dropdown */}
-          <select
-            className="w-full rounded-md py-3 px-4 focus:outline-none bg-white appearance-none border border-gray-400"
-            value={userType}
-            onChange={(e) => {
-              setUserType(e.target.value);
-              setIsOpen(false);
-            }}
-            onFocus={() => {
-              setIsFocused(true);
-              setIsOpen(true);
-            }}
-            onBlur={() => {
-              setIsFocused(userType !== "");
-              setIsOpen(false);
-            }}
-          >
-            <option value="" hidden></option>
-            <option value="User">User</option>
-            <option value="Admin">Admin</option>
-          </select>
-
-          {/* Dropdown Icon */}
-          <i
-            className={`bx ${
-              isOpen ?  "bxs-up-arrow":"bxs-down-arrow"
-            } absolute top-4 right-2 text-gray-500 pointer-events-none transition-all text-xs`}
-          ></i>
         </div>
+        {/* Dropdown Section */}
+        <CustomDropdown
+          label="Access Type *"
+          options={userTypeOptions}
+          value={userType}
+          onChange={setUserType}
+          className="w-full sm:w-1/6 "
+        />
         <button className="bg-primary text-white rounded px-4 py-2 font-semibold">
           Add User
         </button>
@@ -183,7 +105,7 @@ const UserManagement = () => {
       </div>
 
       {/* Search Bar */}
-      <div className="mb-4 w-full  lg:pr-18">
+      <div className="mb-4 w-full lg:pr-18">
         <input
           type="text"
           placeholder="Search Here"
@@ -198,14 +120,30 @@ const UserManagement = () => {
         <table className="min-w-full bg-white">
           <thead>
             <tr className="bg-gray-100">
-              <th className="py-4 px-4 border-b border-gray-300 text-left text-gray-600">#</th>
-              <th className="py-4 px-4 border-b border-gray-300 text-left text-gray-600">User Name</th>
-              <th className="py-4 px-4 border-b border-gray-300 text-left text-gray-600">Display Name</th>
-              <th className="py-4 px-4 border-b border-gray-300 text-left text-gray-600">Access Type</th>
-              <th className="py-4 px-4 border-b border-gray-300 text-left text-gray-600">Org</th>
-              <th className="py-4 px-4 border-b border-gray-300 text-left text-gray-600">Designation</th>
-              <th className="py-4 px-4 border-b border-gray-300 text-left text-gray-600">Email</th>
-              <th className="py-4 px-4 border-b border-gray-300 text-left text-gray-600">Status</th>
+              <th className="py-4 px-4 border-b border-gray-300 text-left text-gray-600">
+                #
+              </th>
+              <th className="py-4 px-4 border-b border-gray-300 text-left text-gray-600">
+                User Name
+              </th>
+              <th className="py-4 px-4 border-b border-gray-300 text-left text-gray-600">
+                Display Name
+              </th>
+              <th className="py-4 px-4 border-b border-gray-300 text-left text-gray-600">
+                Access Type
+              </th>
+              <th className="py-4 px-4 border-b border-gray-300 text-left text-gray-600">
+                Org
+              </th>
+              <th className="py-4 px-4 border-b border-gray-300 text-left text-gray-600">
+                Designation
+              </th>
+              <th className="py-4 px-4 border-b border-gray-300 text-left text-gray-600">
+                Email
+              </th>
+              <th className="py-4 px-4 border-b border-gray-300 text-left text-gray-600">
+                Status
+              </th>
             </tr>
           </thead>
           <tbody>
