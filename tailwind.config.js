@@ -1,6 +1,12 @@
 module.exports = {
   content: [
-    './src/**/*.{js,ts,jsx,tsx}',
+    "./app/**/*.{js,ts,jsx,tsx}", //  Include Next.js app directory
+    "./components/**/*.{js,ts,jsx,tsx}", //  Include components directory
+    "./context/**/*.{js,ts,jsx,tsx}", //  Include context directory
+    "./providers/**/*.{js,ts,jsx,tsx}", //  Include providers directory
+    "./pages/**/*.{js,ts,jsx,tsx}", //  Include pages directory (if used)
+    "./src/**/*.{js,ts,jsx,tsx}", //  Include src directory
+    "./public/**/*.html", // Include public HTML files
   ],
   theme: {
     extend: {
