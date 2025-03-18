@@ -21,8 +21,9 @@
 
 /* Apply Font */
 body, .p-component {
-  font-family: var(--font-family) !important;
+  font-family: var(--font-family) ;
   font-weight: 400; /* Default weight */
+  letter-spacing: normal;
 }
 
 /* Custom Scrollbar Styles */
