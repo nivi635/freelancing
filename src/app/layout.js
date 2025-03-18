@@ -1,16 +1,11 @@
 import { Geist, Geist_Mono } from "next/font/google";
+import { Inter } from "next/font/google"; // Import Inter
 import "./globals.css";
 import CustomPrimeReactProvider from "@/providers/CustomPrimeReactProvider";
 import DashboardWrapper from "@/components/Wrappers/DashboardWrapper";
 
-
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const interFont = Inter({
+  variable: "--font-inter",
   subsets: ["latin"],
 });
 
@@ -19,23 +14,19 @@ export const metadata = {
   description: "Version 2",
 };
 
-import { MyProvider } from '../context/MyContext';
+import { MyProvider } from "../context/MyContext";
 
 export default function RootLayout({ children }) {
   return (
-    
-      <html lang="en">
-        <body className={`${geistSans.variable} ${geistMono.variable} antialiased overflow-y-auto`}>
+    <html lang="en">
+      <body className={`${interFont.variable} antialiased overflow-y-auto`}>
+        {" "}
         <MyProvider>
           <CustomPrimeReactProvider>
-          <DashboardWrapper>
-            {children}
-          </DashboardWrapper>
+            <DashboardWrapper>{children}</DashboardWrapper>
           </CustomPrimeReactProvider>
-          </MyProvider>
-        </body>
-      </html>
-  
+        </MyProvider>
+      </body>
+    </html>
   );
 }
-
