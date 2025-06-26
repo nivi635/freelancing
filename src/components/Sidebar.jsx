@@ -73,8 +73,8 @@ function SidebarContent({ isExpanded, setVisible }) {
           ></i>
         )}
         <ul className="list-none space-y-4">
-          <SidebarItem icon="bx bx-pie-chart-alt-2" label="Home" isExpanded={isExpanded} href="/" />
-          <SidebarItem icon="bx bx-user" label="Admin Board" isExpanded={isExpanded} href="/admin-board" />
+          <SidebarItem icon="bx bx-pie-chart-alt-2" label="Home" isExpanded={isExpanded} href="/dashboard" />
+          <SidebarItem icon="bx bx-user" label="Admin Board" isExpanded={isExpanded} href="/dashboard/admin-board" />
 
           {/* My Work Dropdown */}
           <SidebarDropdown
@@ -83,20 +83,20 @@ function SidebarContent({ isExpanded, setVisible }) {
             isOpen={workDropdown}
             toggle={() => setWorkDropdown(!workDropdown)}
             items={[
-              { label: 'Leads', href: '/my-work/leads' },
-              { label: 'Backend Processing', href: '/my-work/backend-processing' },
-              { label: 'Cold Calling', href: '/my-work/cold-calling' },
-              { label: 'Backlog', href: '/my-work/backlog' },
-              { label: 'Missed Calls', href: '/my-work/missed-calls' },
+              { label: 'Leads', href: '/dashboard/my-work/leads' },
+              { label: 'Backend Processing', href: '/dashboard/my-work/backend-processing' },
+              { label: 'Cold Calling', href: '/dashboard/my-work/cold-calling' },
+              { label: 'Backlog', href: '/dashboard/my-work/backlog' },
+              { label: 'Missed Calls', href: '/dashboard/my-work/missed-calls' },
             ]}
             isExpanded={isExpanded}
           />
 
-          <SidebarItem icon="bx bx-check-shield" label="Disbursed Leads" isExpanded={isExpanded} href="/disbursed-leads" />
-          <SidebarItem icon="bx bx-star" label="Customer" isExpanded={isExpanded} href="/customer" />
-          <SidebarItem icon="bx bx-user-pin" label="Users" isExpanded={isExpanded} href="/users" />
-          <SidebarItem icon="bx bx-block" label="DND" isExpanded={isExpanded} href="/dnd" />
-          <SidebarItem icon="bx bx-send" label="Campaign" isExpanded={isExpanded} href="/campaign" />
+          <SidebarItem icon="bx bx-check-shield" label="Disbursed Leads" isExpanded={isExpanded} href="/dashboard/disbursed-leads" />
+          <SidebarItem icon="bx bx-star" label="Customer" isExpanded={isExpanded} href="/dashboard/customer" />
+          <SidebarItem icon="bx bx-user-pin" label="Users" isExpanded={isExpanded} href="/dashboard/users" />
+          <SidebarItem icon="bx bx-block" label="DND" isExpanded={isExpanded} href="/dashboard/dnd" />
+          <SidebarItem icon="bx bx-send" label="Campaign" isExpanded={isExpanded} href="/dashboard/campaign" />
 
           {/* Monitoring Dropdown */}
           <SidebarDropdown
@@ -105,17 +105,17 @@ function SidebarContent({ isExpanded, setVisible }) {
             isOpen={monitorDropdown}
             toggle={() => setMonitorDropdown(!monitorDropdown)}
             items={[
-              { label: 'Agent Board', href: '/monitoring/agent-board' },
-              { label: 'Agent Report', href: '/monitoring/agent-report' },
-              { label: 'Voice Logger', href: '/monitoring/voice-logger' },
-              { label: 'SIM Map', href: '/monitoring/sim-map' },
+              { label: 'Agent Board', href: '/dashboard/monitoring/agent-board' },
+              { label: 'Agent Report', href: '/dashboard/monitoring/agent-report' },
+              { label: 'Voice Logger', href: '/dashboard/monitoring/voice-logger' },
+              { label: 'SIM Map', href: '/dashboard/monitoring/sim-map' },
             ]}
             isExpanded={isExpanded}
           />
-          <SidebarItem icon="bx bxs-bank" label="Bank Contact" isExpanded={isExpanded} href="/bank-contact" />
-          <SidebarItem icon="bx bx-share-alt" label="Connector" isExpanded={isExpanded} href="/connector" />
-          <SidebarItem icon="bx bx-phone" label="Dialer" isExpanded={isExpanded} href="/dialer" />
-          <SidebarItem icon="bx bx-git-repo-forked" label="Organization" isExpanded={isExpanded} href="/organization" />
+          <SidebarItem icon="bx bxs-bank" label="Bank Contact" isExpanded={isExpanded} href="/dashboard/bank-contact" />
+          <SidebarItem icon="bx bx-share-alt" label="Connector" isExpanded={isExpanded} href="/dashboard/connector" />
+          <SidebarItem icon="bx bx-phone" label="Dialer" isExpanded={isExpanded} href="/dashboard/dialer" />
+          <SidebarItem icon="bx bx-git-repo-forked" label="Organization" isExpanded={isExpanded} href="/dashboard/organization" />
         </ul>
       </div>
     </div>

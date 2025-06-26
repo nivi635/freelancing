@@ -7,7 +7,6 @@ export default function DashboardWrapper({children}) {
         <div className="flex min-h-screen w-full overflow-auto">
           {/* Sidebar Component */}
           <SidebarComp />
-    
           {/* Main content dynamically adjusted using Tailwind */}
           <main className="flex1 w-full flex flex-col transition-all duration-300 ml-16 lg:ml-64  overflow-auto">
             <Header />

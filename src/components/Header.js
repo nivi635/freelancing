@@ -16,10 +16,10 @@ export default function Header() {
           <div className="hidden md:flex items-center gap-4">
           <button className="bg-black text-white px-4 py-1 rounded-md">Create</button>
 
-            <a className="text-blue-500 hover:underline" href="#">
+            <a className="text-blue-500 hover:underline"  target="_blank" href="https://credque.com/tutorial/">
               Tutorial
             </a>
-            <a className="text-blue-500 hover:underline" href="#">
+            <a className="text-blue-500 hover:underline" target="_blank" href="https://credque.com/emi/">
               EMI Calculator
             </a>
             {isLiveCall ? (

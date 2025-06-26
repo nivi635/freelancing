@@ -36,6 +36,7 @@ module.exports = {
           900: '#1a202c',
         },
         white: '#ffffff',
+        chart:'#003B3A',
         black: {
           DEFAULT: '#000000',
           40: 'rgba(0, 0, 0, 0.4)', // Adding black/40

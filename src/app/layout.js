@@ -2,7 +2,6 @@ import { Geist, Geist_Mono } from "next/font/google";
 import { Inter } from "next/font/google"; // Import Inter
 import "./globals.css";
 import CustomPrimeReactProvider from "@/providers/CustomPrimeReactProvider";
-import DashboardWrapper from "@/components/Wrappers/DashboardWrapper";
 
 const interFont = Inter({
   variable: "--font-inter",
@@ -23,7 +22,7 @@ export default function RootLayout({ children }) {
         {" "}
         <MyProvider>
           <CustomPrimeReactProvider>
-            <DashboardWrapper>{children}</DashboardWrapper>
+            {children}
           </CustomPrimeReactProvider>
         </MyProvider>
       </body>
