@@ -3,15 +3,41 @@ import React, { useState } from "react";
 import { InputOtp } from "primereact/inputotp";
 import Image from "next/image";
 import InputFloating from "../InputFloating";
-import Link from "next/link";
+
 export default function Login() {
   const [pin, setPin] = useState("");
   const [mobile, setMobile] = useState("");
+
   const handleMobileChange = (value) => {
     const cleaned = value.replace(/\D/g, "").slice(0, 10);
     setMobile(cleaned);
-    console.log(mobile);
   };
+
+  const handleLogin = async () => {
+    try {
+      const res = await fetch("http://127.0.0.1:5000/api/login", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({ mobile, pin })
+      });
+
+      const data = await res.json();
+
+      if (res.ok) {
+        alert("Login success!");
+        // redirect to dashboard
+        window.location.href = "/dashboard";
+      } else {
+        alert("Login failed: " + data.message);
+      }
+    } catch (error) {
+      alert("Error connecting to backend.");
+      console.error(error);
+    }
+  };
+
   return (
     <div
       className="min-h-screen flex items-center justify-center bg-cover bg-center"
@@ -41,12 +67,12 @@ export default function Login() {
             integerOnly
             mask
           />
-          <Link
-            href={"/dashboard"}
-            className="bg-primary rounded-md  w-full text-center text-white p-2"
+          <button
+            className="bg-primary rounded-md w-full text-center text-white p-2"
+            onClick={handleLogin}
           >
             Login
-          </Link>
+          </button>
           <p className="text-xs text-center">
             If you have trouble logging into your tenancy please contact
             Adminstrator
